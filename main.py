@@ -27,7 +27,7 @@ def index():
         return render_template('index.html', tasks=tasks)
     return redirect(url_for('login'))
 
-
+# Регистация / Хеширование
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -44,7 +44,7 @@ def register():
 
     return render_template('reg.html')
 
-
+# Инициализация входа / Check HASH
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -61,7 +61,7 @@ def login():
 
     return render_template('log.html')
 
-
+# Выход / Перенаправление на страницу Входа
 @app.route('/logout')
 def logout():
     session.pop('user', None)
